@@ -1,6 +1,10 @@
 """RAK811 serial communication layer.
 
-Copyright 2019 Philippe Vanhaesendonck
+Copyright 2021 Tim Brennan
+
+Based on the work of Philippe Vanhaesendonck
+
+See https://github.com/AmedeeBulle/pyrak811/tree/master/rak811
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -121,6 +125,11 @@ class Rak811v2Serial(object):
             - We need to drain the input after a response. If we notify()
             too early the module will miss next command
             - We want to catch all events at the same time
+
+        Modified from the original to use 3 queues.
+        Resp_q - response q will be used for OK and Error responses 
+        RecvEvents_q - Events q will be used for all 'at+recv' event responses
+        Info_q - Informatioin q will be used for all other responses.
         """
         while not self._read_done.is_set():
             line = self._serial.readline()
@@ -147,7 +156,7 @@ class Rak811v2Serial(object):
         """Get response from module.
 
         This is a blocking call: it will return a response line or raise
-        # Rak811TimeoutError if a response line is not received in time.
+        # Rak811v2TimeoutError if a response line is not received in time.
         # """
         if timeout is None:
             timeout = self._response_timeout
@@ -164,8 +173,8 @@ class Rak811v2Serial(object):
     def get_info(self, timeout=None):
         """Get response from module.
 
-        This is a blocking call: it will return a response line or raise
-        # Rak811TimeoutError if a response line is not received in time.
+        This is a blocking call: it will return an information line or raise
+        # Rak811v2TimeoutError if a response line is not received in time.
         # """
         if timeout is None:
             timeout = self._response_timeout
@@ -183,7 +192,7 @@ class Rak811v2Serial(object):
         """Get events from module.
 
         This is a blocking call: it will return a list of events or raise
-        Rak811TimeoutError if no event line is received in time.
+        Rak811v2TimeoutError if no event line is received in time.
         """
         if timeout is None:
             timeout = self._event_timeout

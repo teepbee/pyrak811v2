@@ -1,6 +1,10 @@
 """Exceptions definition.
 
-Copyright 2019 Philippe Vanhaesendonck
+Copyright 2021 Tim Brennan
+
+Based on the work of Philippe Vanhaesendonck
+
+See https://github.com/AmedeeBulle/pyrak811/tree/master/rak811
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

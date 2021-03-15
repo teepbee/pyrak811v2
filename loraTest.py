@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 from rak811v2 import Rak811v2
 
 joinmode = 'ABP'
