@@ -14,7 +14,10 @@ A RAK811 LoRa module (PiSupply IoT LoRa Node pHAT for Raspberry Pi )
 On the Raspberry Pi the hardware serial port must be enabled and the serial console disabled (use raspi-config)
 The user running the application must be in the dialout and gpio groups (this is the default for the pi user)
 
-The Python script loraTest.py is an eaxmple of a script that when configured with appropriate identifiers will excute a number of AT commands including joining to the network (OTA or ABP) and sending some data and waiting for a confirmaton. 
+The Python script loraTest.py is an eaxmple of a script that when configured with appropriate identifiers will execute a number of AT commands including joining to the network (OTA or ABP) and sending some data and waiting for confirmaton.
+
+You may use the Python logging module to control logging by the library. 
+Currently setting the log level to DEBUG will display the AT commands sent to the module and the raw respnse received from the module. See loraTest.py for an example of enabling logging DEBUG level output to the console. For further information regards configuring Python logging see the online documentation for the logging library.
 
 This represents my first foray into both git and Python so appologies in advance for anything missing etc that is normally provided. 
 

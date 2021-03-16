@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 from rak811v2 import Rak811v2
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 joinmode = 'ABP'
 

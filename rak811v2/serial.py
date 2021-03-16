@@ -25,6 +25,7 @@ from threading import Condition, Event, Thread
 from time import sleep
 from queue import SimpleQueue
 from _queue import Empty
+import logging
 
 import ctypes
 
@@ -77,6 +78,7 @@ class Rak811v2Serial(object):
         The serial port is immediately opened and flushed.
         All parameters are optional and passed to Serial.
         """
+        self._logger = logging.getLogger(__name__)
         self._read_buffer_timeout = response_timeout
 #        self._event_timeout = event_timeout
         self._serial = Serial(port=port,
@@ -135,7 +137,7 @@ class Rak811v2Serial(object):
             line = self._serial.readline()
             if line == b'':
                 continue
-            #print(line)
+            self._logger.debug('Recvd: %s', line)
             line = line.decode('ascii').rstrip(EOL)
             if line.startswith(RESPONSE_OK):
                 self.Resp_q.put(line)
@@ -208,6 +210,7 @@ class Rak811v2Serial(object):
 
     def send_string(self, string):
         """Send string to the module."""
+        self._logger.debug("Send: %s", string)
         self._serial.write((bytes)(string, 'utf-8'))
 
     def send_command(self, command, clearq=True):

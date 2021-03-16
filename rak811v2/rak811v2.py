@@ -169,7 +169,7 @@ class Rak811v2(object):
         All parameters are optional and passed to RackSerial.
         """
         self._serial = Rak811v2Serial(**kwargs)
-        self._downlink = []
+
 
     def close(self):
         """Terminates session.
