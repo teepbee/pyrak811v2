@@ -5,7 +5,6 @@ Import classes, exceptions and enums
 import pkg_resources
 
 from .exception import Rak811v2Error  # noqa: F401
-#from .rak811v2 import ErrorCode, EventCode, Mode, RecvEx, Reset  # noqa: F401
 from .rak811v2 import Rak811v2  # noqa: F401
 from .rak811v2 import Rak811v2EventError, Rak811v2ResponseError  # noqa: F401
 from .serial import Rak811v2TimeoutError  # noqa: F401
