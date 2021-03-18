@@ -20,9 +20,11 @@ You may use the Python logging module to control logging by the library.
 Currently setting the log level to DEBUG will display the AT commands sent to the module and the raw respnse received from the module. See loraTest.py for an example of enabling logging DEBUG level output to the console. For further information regards configuring Python logging see the online documentation for the logging library.
 
 Install the rak811v2 package
+
 The package is installed from PyPI:
 
 sudo pip3 install rak811v2
+
 The pip3 command is part of the python3-pip package. If it is missing on your system, run:
 
 sudo apt-get install python3-pip
