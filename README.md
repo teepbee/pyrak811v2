@@ -1,5 +1,5 @@
 # pyrak811v2
-An updated python library pyrak811 has now been made available by the original author which supports both the new and previous versions of the firmware on the PiSupply IoT LoRa Node pHAT for Raspberry Pi plus the CLI interface. I recomend use of this update library which you will find here https://github.com/AmedeeBulle/pyrak811
+An updated python library pyrak811 has now been made available by the original author which supports both the new and previous versions of the firmware on the PiSupply IoT LoRa Node pHAT for Raspberry Pi plus the CLI interface. I recomend use of this updated library which you will find here https://github.com/AmedeeBulle/pyrak811
 
 RAK811v2 Python 3 library for use with the Raspberry Pi LoRa pHAT.
 
